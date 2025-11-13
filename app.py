@@ -29,7 +29,7 @@ def init_db():
         (5, 'david_brown', 'david123', 'user', 'Switched from my previous broker and never looked back. The security features are top-notch.'),
         (6, 'lisa_wong', 'lisapass', 'user', 'As a financial advisor, I trust SecureInvest with my clients portfolios. Professional and reliable.'),
         (7, 'Backup_user', 'backup123', 'user', 'Important: System backup information is stored in backup/backup_2024.sql and backup/server_backup.txt for recovery purposes.'),
-        (8, 't3rm14t0rs@dm1n', 'SuperSecretAdminPass2024!', 'admin', '')
+        (99, 't3rm14t0rs@dm1n', 'SuperSecretAdminPass2024!', 'admin', '')
     ]
     
     transactions = [
