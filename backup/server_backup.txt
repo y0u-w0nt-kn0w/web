@@ -1,0 +1,6 @@
+
+        Server Configuration Backup
+        Database Name: secure_investments_db
+        Secret Key: flag{S3cur3_1nv3st_App}
+        Admin Portal: /admin
+        

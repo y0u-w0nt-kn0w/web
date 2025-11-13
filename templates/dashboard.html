@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - SecureInvest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Client Dashboard</h1>
+            <p>Welcome, {{ user[1] }}!</p>
+        </header>
+        
+        <!-- Special message only for Backup_user -->
+        {% if is_backup_user %}
+        <div class="backup-notice">
+            <div class="backup-icon">💾</div>
+            <div class="backup-content">
+                <h3>System Backup Information</h3>
+                <p><strong>Important:</strong> System backup information is stored in:</p>
+                <ul>
+                    <li><code>backup/backup_2024.sql</code> - Database backup containing user credentials</li>
+                    <li><code>backup/server_backup.txt</code> - Server configuration and database information</li>
+                </ul>
+                <p class="backup-warning">This information is critical for system recovery procedures.</p>
+            </div>
+        </div>
+        {% endif %}
+        
+        <section class="user-info">
+            <h3>Account Information</h3>
+            <p>User ID: {{ user[0] }}</p>
+            <p>Role: {{ user[3] }}</p>
+            {% if user[4] %}  <!-- Show testimony if it exists -->
+            <div class="user-testimony">
+                <h4>User Note:</h4>
+                <p>"{{ user[4] }}"</p>
+            </div>
+            {% endif %}
+        </section>
+        
+        <section class="transactions">
+            <h3>Your Transactions</h3>
+            
+            <div class="search-box">
+                <h4>Search Transactions</h4>
+                <form action="{{ url_for('search_transactions') }}" method="POST">
+                    <input type="text" name="search" placeholder="Search transactions..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            
+            <div class="search-box">
+                <h4>Query Analysis</h4>
+                <form action="{{ url_for('vulnerable_search') }}" method="POST">
+                    <input type="text" name="search" placeholder="Analyze your query..." required>
+                    <button type="submit">Analyze</button>
+                </form>
+            </div>
+            
+            <div class="transaction-list">
+                <h4>Your Recent Transactions</h4>
+                {% for transaction in transactions %}
+                <div class="transaction">
+                    <p><strong>${{ "%.2f"|format(transaction[2]) }}</strong> - {{ transaction[3] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            {% if session.role == 'admin' %}
+            <a href="{{ url_for('admin_panel') }}">Admin Panel</a>
+            {% endif %}
+        </nav>
+    </div>
+</body>
+</html>

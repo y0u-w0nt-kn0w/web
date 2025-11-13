@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureInvest - Premium Asset Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>SecureInvest</h1>
+                <p class="tagline">Advanced Secure Asset Management & Investment Solutions</p>
+                <p class="subtitle">Trusted by over 50,000 investors worldwide with $2.3B+ in managed assets</p>
+            </div>
+        </header>
+        
+        <section class="features">
+            <h2>Why Choose SecureInvest?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Military-Grade Security</h3>
+                    <p>256-bit encryption, multi-factor authentication, and real-time threat monitoring protect your assets 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Smart Investing</h3>
+                    <p>AI-powered portfolio optimization and real-time market analysis for maximum returns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Access</h3>
+                    <p>Invest in international markets, cryptocurrencies, and emerging opportunities worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Expert Management</h3>
+                    <p>Our team of financial experts with 20+ years experience manages your portfolio strategically.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats">
+            <div class="stat-item">
+                <h3>$2.3B+</h3>
+                <p>Assets Under Management</p>
+            </div>
+            <div class="stat-item">
+                <h3>50,000+</h3>
+                <p>Happy Investors</p>
+            </div>
+            <div class="stat-item">
+                <h3>98.7%</h3>
+                <p>Client Satisfaction Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Security Monitoring</p>
+            </div>
+        </section>
+        
+        <section class="testimonies">
+            <h2>What Our Users Say:</h2>
+            <p class="section-subtitle">Join thousands of satisfied investors who trust us with their financial future</p>
+            <div class="testimony-grid">
+                {% for username, testimony in testimonies %}
+                <div class="testimony-card">
+                    <div class="user-avatar">{{ username[0].upper() }}</div>
+                    <h3>{{ username }}</h3>
+                    <p>"{{ testimony }}"</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <section class="security-badge">
+            <div class="security-content">
+                <h3>🔐 Certified Secure Platform</h3>
+                <p>ISO 27001 Certified • SOC 2 Compliant • GDPR Compliant • Regular Security Audits</p>
+            </div>
+        </section>
+        
+        <nav class="main-nav">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Client Login</a>
+            <a href="#features" class="btn btn-secondary">Learn More</a>
+        </nav>
+        
+        <footer>
+            <p>&copy; 2024 t3rmin4t0rs Financial Services. All rights reserved. | FDIC Insured | SEC Registered</p>
+            <p class="disclaimer">Investing involves risk, including possible loss of principal.</p>
+        </footer>
+    </div>
+</body>
+</html>
