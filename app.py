@@ -75,7 +75,7 @@ def initialize_app():
         f.write("""
         Server Configuration Backup
         Database Name: secure_investments_db
-        Secret Key: flag{S3cur3_1nv3st_Fl4sk_App}
+        Secret Key: flag{S3cur3_1nv3st_App}
         Admin Portal: /admin
         """)
     
